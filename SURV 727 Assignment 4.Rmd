@@ -65,3 +65,20 @@ ORDER BY arrest_count DESC;
 ```
 Hour 19 appears to be associated with the most arrests.
 
+Focus only on HOMICIDE and count the number of arrests for this incident type, grouped by
+year. List the results in descending order.
+```{sql connection = con}
+SELECT year, COUNT(*) AS homicide_arrests
+FROM crime
+WHERE primary_type = 'HOMICIDE' AND arrest = TRUE
+GROUP BY year
+ORDER BY homicide_arrests DESC;
+```
+
+
+
+
+
+
+
+

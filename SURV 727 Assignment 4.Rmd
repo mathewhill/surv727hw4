@@ -22,7 +22,16 @@ After you have initialized a project, paste your project ID into the following c
 project <- "surv-727-project-4"
 ```
 
-
+We will connect to a public database, the Chicago crime database, which has data on crime in Chicago.
+```{r}
+con <- dbConnect(
+  bigrquery::bigquery(),
+  project = "bigquery-public-data",
+  dataset = "chicago_crime",
+  billing = project
+)
+con
+```
 
 
 

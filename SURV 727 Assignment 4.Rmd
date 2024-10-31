@@ -46,7 +46,14 @@ WHERE year = 2016
 LIMIT 10
 ```
 
-
+Next, count the number of arrests grouped by primary_type in 2016. Note that is a somewhat similar task as above, with some adjustments on which rows should be considered. Sort the results, i.e. list the number of arrests in a descending order.
+```{sql connection = con}
+SELECT primary_type, COUNT(*) AS arrest_count
+FROM crime
+WHERE year = 2016 AND arrest = TRUE
+GROUP BY primary_type
+ORDER BY arrest_count DESC
+```
 
 
 

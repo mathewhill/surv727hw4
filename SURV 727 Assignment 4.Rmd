@@ -16,3 +16,13 @@ library(DBI)
 library(dbplyr)
 library(bigrquery)
 ```
+
+After you have initialized a project, paste your project ID into the following chunk.
+```{r}
+project <- "surv-727-project-4"
+```
+
+
+
+
+

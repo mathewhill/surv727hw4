@@ -75,6 +75,16 @@ GROUP BY year
 ORDER BY homicide_arrests DESC;
 ```
 
+Find out which districts have the highest numbers of arrests in 2015 and 2016. That is, count
+the number of arrests in 2015 and 2016, grouped by year and district. List the results in
+descending order.
+```{sql connection = con}
+SELECT year, district, COUNT(*) AS arrest_count
+FROM crime
+WHERE year IN (2015, 2016) AND arrest = TRUE
+GROUP BY year, district
+ORDER BY arrest_count DESC;
+```
 
 
 

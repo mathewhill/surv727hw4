@@ -38,6 +38,14 @@ dbListTables(con)
 ```
 
 
+Write a first query that counts the number of rows of the ‘crime‘ table in the year 2016. Use code chunks with {sql connection = con} in order to write SQL code within the document
+```{sql connection = con}
+SELECT count(primary_type), count(*)
+FROM crime
+WHERE year = 2016
+LIMIT 10
+```
+
 
 
 

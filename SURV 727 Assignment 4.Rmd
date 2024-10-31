@@ -9,6 +9,8 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+GitHub link: https://github.com/mathewhill/surv727hw4 
+
 ```{r}
 #| include: false 
 library(tidyverse)

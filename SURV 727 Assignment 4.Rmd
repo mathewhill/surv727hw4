@@ -131,3 +131,18 @@ district_11_result <- dbFetch(district_11_query)
 district_11_result
 ```
 
+Count the number of arrests grouped by primary_type and year, still only for district 11.
+Arrange the result by year.
+```{r}
+crime_tibble %>%
+  filter(district == 11, arrest == TRUE) %>%
+  group_by(primary_type, year) %>%
+  summarise(arrest_count = n()) %>%
+  arrange(year) %>%
+  collect()
+```
+
+
+
+
+

@@ -55,5 +55,13 @@ GROUP BY primary_type
 ORDER BY arrest_count DESC
 ```
 
-
+We can also use the date for grouping. Count the number of arrests grouped by hour of the day in 2016. You can extract the latter information from date via EXTRACT(HOUR FROM date). Which time of the day is associated with the most arrests?
+```{sql connection = con}
+SELECT EXTRACT(HOUR FROM date) AS arrest_hour, COUNT(*) AS arrest_count
+FROM crime
+WHERE year = 2016 AND arrest = TRUE
+GROUP BY arrest_hour
+ORDER BY arrest_count DESC;
+```
+Hour 19 appears to be associated with the most arrests.
 

@@ -117,5 +117,17 @@ local_results <- collect(tibble_result)
 local_results
 ```
 
-
+Again, count the number of arrests grouped by primary_type of district 11 in year 2016, now
+using dplyr syntax.
+```{r}
+district_11_query <- dbSendQuery(con, "
+  SELECT primary_type, COUNT(*) AS arrest_count
+  FROM crime
+  WHERE year = 2016 AND district = 11 AND arrest = TRUE
+  GROUP BY primary_type
+  ORDER BY arrest_count DESC
+")
+district_11_result <- dbFetch(district_11_query)
+district_11_result
+```
 

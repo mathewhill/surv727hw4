@@ -137,7 +137,7 @@ crime_tibble %>%
 
 ### Assign the results of the query above to a local R object.
 ```{r}
-yearly_result <- crime_tbl %>%
+yearly_result <- crime_tibble %>%
   filter(district == 11, arrest == TRUE) %>%
   group_by(primary_type, year) %>%
   summarise(arrest_count = n()) %>%

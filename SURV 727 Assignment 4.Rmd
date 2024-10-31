@@ -86,7 +86,21 @@ GROUP BY year, district
 ORDER BY arrest_count DESC;
 ```
 
-
+Lets switch to writing queries from within R via the DBI package. Create a query object that
+counts the number of arrests grouped by primary_type of district 11 in year 2016. The results
+should be displayed in descending order.
+Execute the query.
+```{r}
+DBI_query <- dbSendQuery(con, "
+  SELECT primary_type, COUNT(*) AS arrest_count
+  FROM crime
+  WHERE year = 2016 AND district = 11 AND arrest = TRUE
+  GROUP BY primary_type
+  ORDER BY arrest_count DESC
+")
+DBI_result <- dbFetch(DBI_query)
+DBI_result
+```
 
 
 

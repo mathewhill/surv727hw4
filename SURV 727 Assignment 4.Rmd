@@ -144,7 +144,7 @@ crime_tibble %>%
 
 Assign the results of the query above to a local R object.
 ```{r}
-result_yearly <- crime_tbl %>%
+yearly_result <- crime_tbl %>%
   filter(district == 11, arrest == TRUE) %>%
   group_by(primary_type, year) %>%
   summarise(arrest_count = n()) %>%
@@ -152,5 +152,9 @@ result_yearly <- crime_tbl %>%
   collect()
 ```
 
-
+Confirm that you pulled the data to the local environment by displaying the first ten rows of
+the saved data set.
+```{r}
+head(yearly_result, 10)
+```
 
